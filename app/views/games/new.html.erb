@@ -1,0 +1,21 @@
+
+<div class="container">
+  <h1>New game</h1>
+  <br>
+  <div class="d-flex">
+    <% @letter_array.each do |letter| %>
+      <div class="letter-box">
+        <%= letter %>
+      </div>
+    <% end %>
+  </div>
+  <div class="inline-block mt-5">
+    What's the longest word you can find?
+    <form action="score" class="form-inline d-flex w-50">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letter_array %>
+      <input type="text" name="word" class="form-control flex-grow-1" id="inputlongestword" placeholder="Enter your word here...">
+      <button type="submit" class="btn btn-primary ml-2">Play</button>
+    </form>
+  </div>
+</div>
